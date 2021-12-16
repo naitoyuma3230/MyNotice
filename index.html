@@ -4,126 +4,89 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- bootstrap4.3.1 -->
+    <link rel="stylesheet" href="css/notice.css" />
+    <link rel="stylesheet" href="css/notice_add.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/notice.css">
+    <title>お知らせを追加</title>
   </head>
-    <header>
-      
-    </header>
-    <main>
-      <div id="notice_vue" class="notice_container">
-        <div class="notice_head">
-          <h3>お知らせ一覧</h3>
-        </div>
-
-        <div class="notice_box" v-for="(article, index) in articles">
-          <div style="width: 100%;">
-            <div class="title" data-toggle="modal" data-target="#exampleModalLong">
-              {{ article.title }}
-            </div>
-            <div class="comment">
-              {{ article.comment }}
-            </div>
-            <div class="to_where">
-              <button  type="button"  style="margin-right: 5px" data-toggle="modal" v-bind:data-target="'#modal'+index">宛先+</button>
-              <div class="tag" v-for="(t , i) in article.target" v-if="t.check">
-                <div>{{ t.name }}</div>
-                <div style="cursor: pointer;" @click="deleteTag(i, index)">[X]</div>
-              </div>
-            </div>
-          </div>
-          <div class="day">
-            <div>{{ article.day }}</div>
-            <div>
-              <div><input type="checkbox" v-model="article.deleteId"></div>
-              <button @click="deleteItem(index)">削除</button>
-            </div>
-          </div>
-
-          <!-- Modal checkbox -->
-          <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" v-bind:id="'modal'+index">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalCenterTitle">記事の宛先を選択</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>タイトル: {{ article.title }}</p>
-                  <div style="margin-bottom: 10px; line-height: 3; border-bottom:0.5px solid rgb(109, 109, 109);">
-                    <input type="checkbox" name="add-notice-all" v-model="article.checkAll" @change="checkAll(index)">
-                    <label for="add-notice-all">全ての対象を選択</label>
-                  </div>
-                  <div class="to" style="white-space: nowrap;">
-                    <input type="checkbox" v-model="article.target[0].check" @change="checkChild(index)">
-                    <label for="add-notice-wanted1" >訪問看護</label>
-                    <input type="checkbox" v-model="article.target[1].check" @change="checkChild(index)">
-                    <label for="add-notice-wanted2" >訪問介護</label>
-                    <input type="checkbox" v-model="article.target[2].check" @change="checkChild(index)">
-                    <label for="add-notice-wanted3"   >訪問リハビリ</label>
-                  </div>
-                  <div class="to" style="white-space: nowrap;">
-                    <input type="checkbox" v-model="article.target[3].check" @change="checkChild(index)">
-                    <label for="add-notice-wanted3">通所介護</label>
-                    <input type="checkbox" v-model="article.target[4].check" @change="checkChild(index)">
-                    <label for="add-notice-wanted3">入所介護</label>
-                    <input type="checkbox"  v-model="article.target[5].check" @change="checkChild(index)">
-                    <label for="add-notice-wanted3">入所リハビリ</label>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Modal checkbox -->
-
-          <!-- Modal article -->
-          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">記事の編集</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                <!-- article body -->
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">タイトル</label>
-                    <input class="form-control" id="exampleInputEmail1" v-model="article.title" v-bind:placeholder="article.title">
-                    <label for="exampleFormControlTextarea1">内容</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="article.comment">{{ article.comment }}</textarea>
-                  </div>
-                  <!-- article body -->
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" data-dismiss="modal">編集終了</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Modal article -->
-        </div>
-        <div style="margin: 20px 0; display: flex; justify-content: space-between;">
-          <button><a href="notice_add.html" style="color: black; text-decoration: none;">お知らせを追加</a></button>
-          <button v-if="deleteIdCount" @click="checkedDelete">一括削除</button>
-        </div>
+  <header>
+    heater
+  </header>
+  <body>
+    <div class="form_container" id="notice_add">
+    <div class="form_title">
+      <div>
+        <button><a href="notice.html" style="text-decoration: none; color: black;">一覧に戻る</a></button>
       </div>
-    </main>
+    </div>
+      <input v-model="message" style="text-align: center;">
+      <p style="text-align: center;" >{{ message }}</p>
+      <div class="table">
+        <table>
+          <tbody>
+            <tr>
+              <th class="align-text-middle">タイトル</th>
+              <td><textarea v-model="newItem.title">{{ newItem.title }}</textarea></td>
+            </tr>
+            <tr>
+              <th>内容</th>
+              <td><textarea cols="30" rows="10" v-model="newItem.comment">{{ newItem.comment }}</textarea></td>
+            </tr>
+            <tr>
+              <th>掲載日</th>
+              <td><input type="date" v-model:valu="newItem.day"></td>
+            </tr>
+            <tr>
+              <th>対象</th>
+              <td>
+								<div style="padding-left:5px ; margin-bottom: 10px; line-height: 3; border-bottom:0.5px solid rgb(109, 109, 109);">
+									<input type="checkbox" name="add-notice-all" v-model="newItem.checkAll" @change="checkAll">
+									<label for="add-notice-all">全ての対象を選択</label>
+								</div>
+								<div class="to" style="white-space: nowrap;">
+									<input type="checkbox" v-model="newItem.target[0].check" @change="checkChild" >
+									<label for="add-notice-wanted1">訪問看護</label>
+									<input type="checkbox" v-model="newItem.target[1].check" @change="checkChild">
+									<label for="add-notice-wanted2">訪問介護</label>
+									<input type="checkbox" v-model="newItem.target[2].check" @change="checkChild">
+									<label for="add-notice-wanted3">訪問リハビリ</label>
+								</div>
+                <div class="to" style="white-space: nowrap;">
+                  <input type="checkbox" v-model="newItem.target[3].check" @change="checkChild">
+									<label for="add-notice-wanted3">通所介護</label>
+									<input type="checkbox" v-model="newItem.target[4].check" @change="checkChild">
+									<label for="add-notice-wanted3">入所介護</label>
+									<input type="checkbox" v-model="newItem.target[5].check" @change="checkChild">
+									<label for="add-notice-wanted3">入所リハビリ</label>
+                </div>
+							</td>
+            </tr>
+            <tr>
+              <th>Select</th>
+              <td>
+                <select name="" id="">
+                  <option value="">Please select one</option>
+                  <option>select A</option>
+                  <option>select B</option>
+                  <option>select C</option>
+                  <option>select D</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="form_title">
+        <div style="margin: 20px 0;">
+          <button><a href="notice.html" style="text-decoration: none; color: black;">キャンセル</a></button>
+        </div>
+        <button><a href="notice.html" style="color: black; text-decoration: none;" @click="addItem()">お知らせを保存</a></button>
+      </div>
+    </div>
     <footer>
-      <div></div>
+      <div>Footer</div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="js/notiec.js"></script>
-
-    <!-- bootstrap 4.3.1 -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
-</body>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="js/notice_add.js"></script>
+  </body>
+</html>
