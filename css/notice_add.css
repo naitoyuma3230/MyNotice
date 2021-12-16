@@ -1,0 +1,55 @@
+.form_container{
+  border:1px solid rgb(136, 136, 136);
+  justify-content: space-between;
+  margin: 40px 15px;
+}
+.form_title{
+  /* border:1px solid rgb(136, 136, 136); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+.table{
+  border: 1px solid black;
+  display: table;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.table table{
+  width: 100%;
+}
+
+.table th{
+  border: 1px solid black;
+  text-align: center;
+  /* width: 120px; */
+  /* height: 60px; */
+}
+
+.table td{
+  width: auto;
+}
+
+.table textarea{
+  margin: 10px;
+  width: 95%;
+}
+.table input[type="date"]{
+  margin: 10px;
+}
+.table select{
+  margin: 10px;
+} 
+.to{
+  margin-left: 5px;
+}
+.table label{
+  overflow-wrap: keep-all;
+}
+
+.table table, .table td, .table th{
+  border-collapse: collapse;
+  border:0.5px solid rgb(136, 136, 136);
+}
