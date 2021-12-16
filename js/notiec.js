@@ -51,7 +51,7 @@
         }
       },
       checkedDelete: function(){
-        confirm("チェックした記事を全て削除します"){
+        if(confirm("チェックした記事を全て削除します")){
           this.articles = this.deletedArray;
         }
       }
