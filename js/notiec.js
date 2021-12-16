@@ -51,8 +51,9 @@
         }
       },
       checkedDelete: function(){
-        confirm("チェックした記事を全て削除します");
-        this.articles = this.deletedArray;
+        confirm("チェックした記事を全て削除します"){
+          this.articles = this.deletedArray;
+        }
       }
     },
     mounted:function(){
