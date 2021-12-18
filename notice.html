@@ -19,7 +19,7 @@
 
         <div class="notice_box" v-for="(article, index) in articles">
           <div style="width: 100%;">
-            <div class="title" data-toggle="modal" data-target="#exampleModalLong">
+            <div class="title" data-toggle="modal" v-bind:data-target="'#titleModal'+index">
               {{ article.title }}
             </div>
             <div class="comment">
@@ -83,7 +83,7 @@
           <!-- Modal checkbox -->
 
           <!-- Modal article -->
-          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal fade" v-bind:id="'titleModal'+index" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
