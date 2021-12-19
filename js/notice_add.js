@@ -10,7 +10,8 @@
         day:"1991-11-18",
         checkAll: false,
         deleteId:false,
-        target:[{
+        target:[
+          {
           id:1,
           name:"訪問看護",
           check: false,
@@ -34,7 +35,8 @@
           id:6,
           name:"入所リハビリ",
           check: false,
-        }]
+        }
+      ]
       },
 
     },
